@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <title>SJTU</title>
+  <script src="https://cdn.bootcss.com/vue/2.4.2/vue.min.js"></script>
+  <link rel="stylesheet" type="text/css" href="myCSS.css" media="screen"/>
+
+</head>
+
+<body>
+
+<script language="JavaScript" type="text/javascript" src="myJS.js"></script>
+
+<div class="top-bar">
+  <button class="top-text">SJTU wiki |</button>
+  <button class="top-button" type="submit" onclick="openPage_show_article()">Back</button>
+</div>
+<br>
+
+<div class="article-hint">Add you Title here
+<div id="edit-title">
+  <textarea v-model="title"></textarea>
+</div>
+</div>
+<br>
+
+<div class="article-hint">Add you summary here
+<div id="edit-summary">
+  <textarea></textarea>
+</div>
+</div>
+<br>
+
+<div class="article-hint">Add you tag here
+<div id="edit-tag">
+  <a href="##"><button type="button" class="btn-type">Fun</button></a>
+  <button type="button" class="btn-type">Study</button>
+</div>
+</div>
+<br>
+
+<div class="article-hint">Add you article here
+<div>
+  <textarea id="edit-body"></textarea>
+</div>
+</div>
+<br>
+
+<div id="impor-ops">
+  <button type="button">Save</button>
+  <button type="button">Modify</button>
+  <button type="button" id="btn-submit" @click="updateNewArticle">Submit</button>
+</div>
+
+<script>
+  new Vue({
+    el: "#btn-submit",
+    data:{
+      articleTitle:''
+    },
+    methods:{
+      updateNewArticle:function{
+        set_new_article(this.articleTitle);
+      }
+    }
+  });
+</script>
+
+<style>
+  .article-hint{
+    text-align: center;
+  }
+  #impor-ops{
+    visibility: hidden;
+  }
+  #edit-body{
+    height: 100px;
+    width: 200px;
+  }
+</style>
+
+</body>
+
+</html>

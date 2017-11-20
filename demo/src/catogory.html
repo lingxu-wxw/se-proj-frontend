@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>STJU</title>
+  <script src="https://cdn.bootcss.com/vue/2.4.2/vue.min.js"></script>
+  <link rel="stylesheet" type="text/css" href="myCSS.css" media="screen"/>
+</head>
+
+<body>
+
+<script language="JavaScript" type="text/javascript" src="myJS.js"></script>
+
+<div class="top-bar">
+  <button class="top-text">SJTU wiki |</button>
+  <button class="top-button">About</button>
+  <input style="float: right">
+  <button class="top-button" id="btn-search" onclick="openPage_search()">Search</button>
+</div>
+
+<br>
+
+<div id="new-article">
+  <p v-model="newArticle">Latest article: {{newArticle}}</p>
+</div>
+
+<div id="article-catagory">
+  <p><a class="classify" name="fun">JUST FOR FUN</a></p>
+  <ul class="paragraph-title">
+    <li><a href="show_article.html">Study in SE is fun</a></li>
+    <ul>
+      <p>sth about article 1</p>
+    </ul>
+    <li>Have fun coding</li>
+  </ul>
+  <p><a class="classify" name="study">HOW TO STUDY</a></p>
+  <ul class="paragraph-title">
+    <li>How to write a front-end</li>
+    <li>How to use vue?</li>
+  </ul>
+</div>
+</body>
+
+<script>
+  new Vue({
+    el:'#new-article',
+    data:{
+      newArticle:''
+    },
+    met
+  }),
+  new Vue({
+    el:'#btn-search',
+    methods:{
+
+    }
+  });
+</script>
+
+<style>
+  #new-article{
+    text-align: center;
+    color: whitesmoke;
+    font-weight: bold;
+  }
+  #article-tag{
+    visibility: hidden;
+  }
+  .classify{
+    color: green;
+    font-weight: bold;
+  }
+  #article-catagory{
+    padding-left: 200px;
+    color: whitesmoke;
+    font-weight: bold;
+  }
+</style>
+
+</html>

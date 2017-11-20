@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <title>Vue js</title>
+  <script src="https://cdn.bootcss.com/vue/2.4.2/vue.min.js"></script>
+</head>
+
+
+<body>
+
+<p>[Part4 components in a peak cut]</p>
+<div id ="part4">
+  <counter heading="Likes" color="green"></counter>
+  <counter heading="Dislikes" color="red"></counter>
+</div>
+<br>
+
+<p>[Part3 events in vue convert final]</p>
+<div id ="part3">
+  <button type="button" @click="updateCount">Submit {{ count }}</button>
+</div>
+<br>
+
+<p>[Part2 v-show for hidding data]</p>
+<div id="part2">
+  <form>
+    <div class="error" v-show="!message">You must enter a message.</div>
+    <div class="error" v-if="!message">You must enter a message.</div>
+    <textarea v-model="message"></textarea>
+    <button v-show="message">Send message</button>
+  </form>
+  <pre>
+        {{ $data | json }}
+    </pre>
+</div>
+<br>
+
+<p>[Part1 v-model data binding convert]</p>
+<div id="part1">
+  <p> {{ message }}</p>
+  <input type="text" v-model="message">
+  <pre>
+        {{ $data | json }}
+    </pre>
+</div>
+<br>
+
+<div id="part5">
+  <input type="text" v-model="message">
+  <button type="button" @click="showNav">search</button>
+  <p>search for {{message}}</p>
+</div>
+
+<template id="counter-template">
+  <p>{{ heading }}</p>
+  <button @click="count+=1" style="background: {{color}}">{{ count}}</button>
+</template>
+
+<script src="vue.min.js"></script>
+<script>
+  new Vue({
+    el: '#part1',
+    data: {
+      message: "Hello World !"
+    }
+  });
+  new Vue({
+    el: '#part2',
+    data:{
+      message:''
+    }
+  });
+  new Vue({
+    el: '#part3',
+    data:{
+      count:0
+    },
+    methods:{
+      updateCount:function(){
+        this.count +=1;
+      }
+    }
+  });
+  new Vue({
+    el:'#part4'
+  });
+
+  Vue.component('counter',{
+    template:'#counter-template',
+    props:['heading','color'],
+    data:function(){
+      return {count:0};
+    }
+  });
+
+  new Vue({
+    el: '#part5',
+    data: {
+      message: ''
+    }
+  });
+
+</script>
+
+</body>
+</html>

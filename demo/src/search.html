@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>SJTU</title>
+  <script src="https://cdn.bootcss.com/vue/2.4.2/vue.min.js"></script>
+  <link rel="stylesheet" type="text/css" href="myCSS.css" media="screen"/>
+</head>
+
+<body>
+<script language="JavaScript" type="text/javascript" src="myJS.js"></script>
+
+<div class="top-bar">
+  <button class="top-text">SJTU wiki |</button>
+  <button class="top-button" type="submit" onclick="openPage_catogory()">Back</button>
+</div>
+
+
+  <p id="search-title">Search</p>
+  <p id="search-nav">fun  study</p>
+
+  <div id="search-hint">
+    <input type="text" v-model="message">
+    <button type="button">search</button>
+    <p>search for .....</p>
+  </div>
+
+  <p id="search-result" v-if="hasSearch">We have found {{ numOfMessage }} message about it</p>
+
+
+<script>
+  new Vue({
+    el: '#search-hint',
+    data: {
+      message: '',
+      seen: false
+    }
+  });
+
+  new Vue({
+    el: '#search-result',
+    data:{
+      numOfMessage:0,
+      hasSearch: false
+    },
+    methods:{
+      searchArticle: function{
+        this.hasSearch = true;
+      }
+    }
+  });
+</script>
+
+<style>
+  #search{
+    text-align: center;
+  }
+  #search-title{
+    text-align: center;
+    font-family: 'Avenir', Helvetica, Arial, sans-serif;
+    font-size: x-large;
+  }
+  #search-nav{
+    text-align: center;
+    text-decoration: underline;
+    font-size: medium;
+  }
+  #search-hint{
+    text-align: center;
+    font-size: small;
+  }
+  #search-result{
+    text-align: center;
+    font-size: small;
+    visibility: hidden;
+  }
+</style>
+
+</body>
+
+</html>

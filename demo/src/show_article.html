@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>SJTU</title>
+  <script src="https://cdn.bootcss.com/vue/2.4.2/vue.min.js"></script>
+  <link rel="stylesheet" type="text/css" href="myCSS.css" media="screen"/>
+</head>
+
+<body>
+
+<script language="JavaScript" type="text/javascript" src="myJS.js"></script>
+
+<div class="top-bar">
+  <button class="top-text">SJTU wiki |</button>
+  <button class="top-button" type="submit" onclick="openPage_catogory()">Back</button>
+  <button class="top-button" type="submit" onclick="openPage_edit_article()">Add new</button>
+</div>
+<br>
+
+<div id="article">
+  <p id="article-title">Study in SE is fun</p>
+  <p id="article-relative">Fun  2017/11/18  Jackson</p>
+  <p id="article-body">I think studying in SE is really fun...</p>
+</div>
+
+<br>
+<br>
+
+<div id="reader-recommend">
+  <button type="button" id="reader-like" @click="updateLikeCount">Like {{ likeNum }}</button>
+  <button type="button" id="reader-dislike" @click="updateDislikeCount">DisLike {{ dislikeNum }}</button>
+</div>
+
+<script>
+  new Vue({
+    el: '#reader-recommend',
+    data:{
+      likeNum:0,
+      dislikeNum:0
+    },
+    methods:{
+      updateLikeCount:function(){
+        this.likeNum +=1;
+      },
+      updateDislikeCount:function(){
+        this.dislikeNum += 1;
+      }
+    }
+  });
+</script>
+
+<style>
+  #article{
+    text-align: center;
+  }
+  #article-title{
+    font-size: x-large;
+  }
+  #article-relative{
+    text-align: right;
+    padding-right: 30px;
+    font-size: small;
+  }
+  #article-body{
+    font-size: small;
+  }
+
+  #reader-recommend{
+    text-align: right;
+    padding-right: 50px;
+  }
+  #reader-like{
+    color: limegreen;
+  }
+  #reader-dislike{
+    color: indianred;
+  }
+
+  #reader-comments{
+    padding-left: 50px;
+  }
+</style>
+
+</body>
+
+</html>
